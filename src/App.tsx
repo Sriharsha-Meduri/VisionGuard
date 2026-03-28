@@ -526,7 +526,7 @@ export default function App() {
             LET'S BUILD THIS.
           </h2>
           <p className="font-bold text-xl md:text-3xl mt-6 mb-12 relative z-10 bg-black/60 p-4 border-[3px] border-black inline-block">
-            DP World National Hackathon — BITS Pilani Hyderabad 2026
+            DP World National Hackathon 2026
           </p>
           <br/>
           <a href="mailto:sriharshameduri07@gmail.com" className="inline-block bg-[#FFC700] text-black font-display text-3xl px-12 py-6 border-[4px] border-black shadow-[8px_8px_0_black] hover:translate-y-2 hover:shadow-none transition-all relative z-10">
