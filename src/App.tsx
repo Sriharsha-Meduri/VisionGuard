@@ -4,7 +4,7 @@ import {
   Volume2, ArrowLeft, ArrowRight, ChevronsDown, 
   Camera, Box, ShieldAlert, Cpu, Activity, LayoutDashboard, 
   CheckSquare, Zap, Target, TrendingUp, Users, Server, 
-  HardDrive, FileCheck, Anchor
+  HardDrive, FileCheck, Anchor, ExternalLink
 } from 'lucide-react';
 
 // --- Neo-Brutalist Graphic Components ---
@@ -202,10 +202,13 @@ export default function App() {
         <div className="flex-1 bg-[#E63946] rounded-[2.5rem] border-[8px] border-black flex flex-col relative shadow-[inset_0_0_0_8px_rgba(0,0,0,0.1)] overflow-hidden" style={{ backgroundColor: currentSlide.trayColor, transition: 'background-color 0.5s ease' }}>
           
           <nav className="flex items-center justify-between px-8 py-6 z-50 relative text-black">
-            <div className="flex gap-8 font-bold text-sm tracking-widest uppercase hidden md:flex">
+            <div className="flex gap-8 font-bold text-sm tracking-widest uppercase hidden md:flex items-center">
               <a href="#problem" className="hover:opacity-70 transition-opacity">Problem</a>
               <a href="#solution" className="hover:opacity-70 transition-opacity">Solution</a>
               <a href="#prototype" className="hover:opacity-70 transition-opacity">Prototype</a>
+              <a target="_blank" rel="noreferrer" href="https://drive.google.com/drive/folders/1vl2dqhAnZrEpiGAbXSDgtOpGtVbOC802?usp=sharing" className="bg-white px-3 py-1 border-[2px] border-black shadow-[2px_2px_0_rgba(0,0,0,1)] hover:bg-black hover:text-white transition-all flex items-center gap-2">
+                <ExternalLink size={16} /> Asset Drive
+              </a>
             </div>
             
             <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 top-4">
@@ -455,6 +458,14 @@ export default function App() {
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Drive Link Button */}
+        <div className="mt-12 flex justify-center">
+          <a filter="noopener" target="_blank" rel="noreferrer" href="https://drive.google.com/drive/folders/1vl2dqhAnZrEpiGAbXSDgtOpGtVbOC802?usp=sharing" className="bg-[#FFC700] hover:bg-black hover:text-[#FFC700] text-black border-[4px] border-black px-8 py-4 font-display text-2xl lg:text-3xl shadow-[8px_8px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4">
+            <ExternalLink size={36} strokeWidth={3} />
+            VIEW PROJECT DRIVE & ASSETS
+          </a>
         </div>
       </Section>
 
