@@ -73,9 +73,9 @@ const Starburst = ({ className, children }: { className?: string, children?: Rea
 
 const Tray = ({ color, items }: { color: string; items: any[] }) => {
   return (
-    <div className="relative w-72 h-72 md:w-96 md:h-96">
+    <div className="relative w-80 h-80 sm:w-72 sm:h-72 md:w-96 md:h-96 origin-center transition-transform">
       <div 
-        className="absolute inset-0 rounded-[40px] border-[6px] border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]"
+        className="absolute inset-0 rounded-[30px] sm:rounded-[40px] border-[5px] sm:border-[6px] border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] sm:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]"
         style={{
           backgroundColor: color,
           transform: 'rotateX(60deg) rotateZ(-45deg)',
@@ -160,10 +160,10 @@ interface SectionProps {
 }
 
 const Section = ({ id, title, bg, color = 'black', className = '', children }: SectionProps) => (
-  <section id={id} className={`w-full relative px-6 md:px-12 py-24 flex flex-col z-10 overflow-hidden ${className}`} style={{ backgroundColor: bg, color }}>
+  <section id={id} className={`w-full relative px-4 sm:px-6 md:px-12 py-16 md:py-24 flex flex-col z-10 overflow-hidden ${className}`} style={{ backgroundColor: bg, color }}>
     <div className="absolute top-0 left-0 w-full border-t-[8px] border-black pointer-events-none"></div>
     <div className="max-w-7xl mx-auto w-full relative z-10">
-      <h2 className="font-display text-5xl md:text-7xl uppercase mb-16 tracking-tight drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white" style={{ WebkitTextStroke: '2px black' }}>
+      <h2 className="font-display text-4xl sm:text-5xl md:text-7xl uppercase mb-10 md:mb-16 tracking-tight drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-white" style={{ WebkitTextStroke: '2px black' }}>
         {title}
       </h2>
       {children}
@@ -172,11 +172,11 @@ const Section = ({ id, title, bg, color = 'black', className = '', children }: S
 );
 
 const Card = ({ title, desc, icon: Icon, bg = 'white', color = 'black', badge }: any) => (
-  <div className="p-8 border-[4px] border-black shadow-[8px_8px_0_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0_rgba(0,0,0,1)] transition-all flex flex-col gap-4 relative" style={{ backgroundColor: bg, color }}>
-    {badge && <div className="absolute -top-4 -right-4 bg-black text-white px-4 py-2 font-bold uppercase text-sm border-[3px] border-white z-10 rotate-12">{badge}</div>}
-    {Icon && <Icon size={48} strokeWidth={2.5} className="mb-2" />}
-    <h3 className="font-display text-3xl uppercase tracking-wide leading-tight">{title}</h3>
-    <p className="font-bold text-lg leading-relaxed opacity-90">{desc}</p>
+  <div className="p-6 sm:p-8 border-[3px] sm:border-[4px] border-black shadow-[6px_6px_0_rgba(0,0,0,1)] sm:shadow-[8px_8px_0_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[8px_8px_0_rgba(0,0,0,1)] sm:hover:shadow-[12px_12px_0_rgba(0,0,0,1)] transition-all flex flex-col gap-3 sm:gap-4 relative" style={{ backgroundColor: bg, color }}>
+    {badge && <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-black text-white px-3 py-1 sm:px-4 sm:py-2 font-bold uppercase text-xs sm:text-sm border-[2px] sm:border-[3px] border-white z-10 rotate-12">{badge}</div>}
+    {Icon && <Icon size={40} className="sm:w-12 sm:h-12 mb-2" strokeWidth={2.5} />}
+    <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-wide leading-tight">{title}</h3>
+    <p className="font-bold text-base sm:text-lg leading-relaxed opacity-90">{desc}</p>
   </div>
 );
 
@@ -201,8 +201,8 @@ export default function App() {
       <div className="min-h-screen w-full p-4 md:p-6 flex flex-col relative">
         <div className="flex-1 bg-[#E63946] rounded-[2.5rem] border-[8px] border-black flex flex-col relative shadow-[inset_0_0_0_8px_rgba(0,0,0,0.1)] overflow-hidden" style={{ backgroundColor: currentSlide.trayColor, transition: 'background-color 0.5s ease' }}>
           
-          <nav className="flex items-center justify-between px-8 py-6 z-50 relative text-black">
-            <div className="flex gap-8 font-bold text-sm tracking-widest uppercase hidden md:flex items-center">
+<nav className="flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 z-50 relative text-black w-full">
+            <div className="flex-1 flex gap-8 font-bold text-sm tracking-widest uppercase hidden lg:flex items-center">
               <a href="#problem" className="hover:opacity-70 transition-opacity">Problem</a>
               <a href="#solution" className="hover:opacity-70 transition-opacity">Solution</a>
               <a href="#prototype" className="hover:opacity-70 transition-opacity">Prototype</a>
@@ -210,13 +210,13 @@ export default function App() {
                 <ExternalLink size={16} /> Asset Drive
               </a>
             </div>
-            
-            <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 top-4">
-              <h1 className="font-display text-4xl text-white text-stroke tracking-widest leading-none">VISION GUARD</h1>
-              <span className="font-bold text-[10px] tracking-[0.3em] mt-1 uppercase">AI Automation</span>
+
+            <div className="flex flex-col items-center justify-center flex-1 lg:flex-none">
+              <h1 className="font-display text-3xl sm:text-4xl text-white text-stroke tracking-widest leading-none text-center">VISION GUARD</h1>
+              <span className="font-bold text-[10px] tracking-[0.3em] uppercase text-center mt-1">AI Automation</span>
             </div>
 
-            <div className="flex gap-8 items-center font-bold text-sm tracking-widest uppercase">
+            <div className="flex-1 flex justify-end gap-4 sm:gap-8 items-center font-bold text-sm tracking-widest uppercase absolute right-4 sm:right-8 top-4 sm:top-6 lg:relative lg:right-0 lg:top-0">
               <a href="#contact" className="hover:opacity-70 transition-opacity hidden md:block">Team</a>
               <button className="flex items-center gap-2 hover:opacity-70 transition-opacity">
                 <Volume2 size={24} strokeWidth={3} />
@@ -224,30 +224,32 @@ export default function App() {
             </div>
           </nav>
 
-          <main className="flex-1 flex flex-col lg:flex-row items-center justify-center relative px-6 md:px-12 z-10 pb-16">
-            <div className="flex-1 flex items-center justify-center relative h-[400px] lg:h-full w-full">
+          <main className="flex-1 flex flex-col lg:flex-row items-center justify-center relative px-2 sm:px-6 md:px-12 z-10 pb-8 sm:pb-16 pt-0">
+            <div className="flex-1 flex items-center justify-center relative min-h-[300px] sm:min-h-[400px] lg:h-full w-full max-w-full overflow-visible mt-2 sm:mt-0">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide.id}
-                  initial={{ x: -100, opacity: 0, scale: 0.9 }}
-                  animate={{ x: 0, opacity: 1, scale: 1 }}
-                  exit={{ x: 100, opacity: 0, scale: 0.9 }}
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: 100, opacity: 0 }}
                   transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                  className="relative mt-12 lg:mt-20"
+                  className="relative sm:mt-12 lg:mt-20"
                 >
-                  <Tray color={currentSlide.trayColor === "#FFC700" ? "#E63946" : "#FFC700"} items={currentSlide.items} />
-                  
-                  <Starburst className="absolute -top-12 -left-12 lg:-top-24 lg:-left-24 w-48 h-48 lg:w-64 lg:h-64 z-50 scale-75 lg:scale-100">
-                    <span className="font-bold text-xs lg:text-sm text-black mb-1 tracking-wider uppercase">{currentSlide.bubbleTop}</span>
-                    <span className="font-display text-3xl lg:text-4xl text-white leading-none whitespace-pre-line text-stroke-red pt-1 drop-shadow-md">
-                      {currentSlide.bubbleMain}
-                    </span>
-                  </Starburst>
+                  <div className="scale-[0.65] sm:scale-100 origin-center transition-transform">
+                    <Tray color={currentSlide.trayColor === "#FFC700" ? "#E63946" : "#FFC700"} items={currentSlide.items} />
+                    
+                    <Starburst className="absolute -top-12 -left-12 sm:-top-16 sm:-left-16 lg:-top-24 lg:-left-24 w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 z-50">
+                      <span className="font-bold text-sm lg:text-lg text-black mb-1 tracking-wider uppercase">{currentSlide.bubbleTop}</span>
+                      <span className="font-display text-4xl sm:text-4xl lg:text-5xl text-white leading-none whitespace-pre-line text-stroke-red pt-1 drop-shadow-md text-center">
+                        {currentSlide.bubbleMain}
+                      </span>
+                    </Starburst>
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center lg:pl-12 h-full z-20">
+            <div className="flex-1 flex flex-col justify-center lg:pl-12 h-full z-20 mt-[-2rem] sm:mt-0">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide.id}
@@ -255,45 +257,45 @@ export default function App() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="max-w-xl text-center lg:text-left"
+                  className="max-w-xl text-center lg:text-left mt-2 sm:mt-8 lg:mt-0 px-4 sm:px-2 lg:px-0 w-full"
                 >
-                  <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tight mb-8 whitespace-pre-line uppercase text-white drop-shadow-[4px_4px_0_rgba(0,0,0,1)]" style={{ WebkitTextStroke: '2px black' }}>
+                  <h2 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-none sm:leading-[0.85] tracking-tight mb-6 sm:mb-8 whitespace-pre-line uppercase text-white drop-shadow-[3px_3px_0_rgba(0,0,0,1)] sm:drop-shadow-[4px_4px_0_rgba(0,0,0,1)]" style={{ WebkitTextStroke: '2px black' }}>
                     {currentSlide.title}
                   </h2>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-12 items-center lg:items-start text-left">
-                    <p className="font-bold text-lg md:text-xl w-full sm:max-w-[250px] whitespace-pre-line leading-tight bg-white/90 p-4 border-[3px] border-black shadow-[4px_4px_0_rgba(0,0,0,1)]">
+
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-8 mb-6 sm:mb-12 items-center lg:items-start text-center sm:text-left mx-auto sm:mx-0 max-w-[280px] sm:max-w-none">
+                    <p className="font-bold text-sm sm:text-lg md:text-xl w-full sm:max-w-[250px] whitespace-pre-line leading-tight bg-white/90 p-3 sm:p-4 border-[2px] sm:border-[3px] border-black shadow-[3px_3px_0_rgba(0,0,0,1)] sm:shadow-[4px_4px_0_rgba(0,0,0,1)]">
                       {currentSlide.desc1}
                     </p>
-                    <p className="font-bold text-lg md:text-xl w-full sm:max-w-[250px] whitespace-pre-line leading-tight bg-black text-white p-4 border-[3px] border-black shadow-[4px_4px_0_rgba(255,255,255,1)]">
+                    <p className="font-bold text-sm sm:text-lg md:text-xl w-full sm:max-w-[250px] whitespace-pre-line leading-tight bg-black text-white p-3 sm:p-4 border-[2px] sm:border-[3px] border-black shadow-[3px_3px_0_rgba(255,255,255,1)] sm:shadow-[4px_4px_0_rgba(255,255,255,1)]">
                       {currentSlide.desc2}
                     </p>
                   </div>
                 </motion.div>
               </AnimatePresence>
 
-              <div className="flex items-center justify-center lg:justify-start gap-6">
+              <div className="flex items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-4 pb-12 sm:pb-0">
                 <button 
                   onClick={prevSlide}
-                  className="w-16 h-16 bg-white border-[4px] border-black rounded-full flex items-center justify-center shadow-[6px_6px_0_0_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:translate-y-[6px] active:shadow-none transition-all"
+                  className="w-12 h-12 sm:w-16 sm:h-16 bg-white border-[4px] border-black rounded-full flex items-center justify-center shadow-[4px_4px_0_0_rgba(0,0,0,1)] sm:shadow-[6px_6px_0_0_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] sm:hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:translate-y-[6px] active:shadow-none transition-all"
                 >
-                  <ArrowLeft size={32} strokeWidth={4} />
+                  <ArrowLeft size={24} className="sm:w-8 sm:h-8" strokeWidth={4} />
                 </button>
                 
-                <div className="flex gap-3 bg-white border-[4px] border-black p-3 rounded-full shadow-[4px_4px_0_rgba(0,0,0,1)]">
+                <div className="flex gap-2 sm:gap-3 bg-white border-[3px] sm:border-[4px] border-black p-2 sm:p-3 rounded-full shadow-[4px_4px_0_rgba(0,0,0,1)]">
                   {slides.map((s, i) => (
                     <div 
                       key={s.id} 
-                      className={`h-4 border-[3px] border-black rounded-full transition-all duration-300 ${i === currentIndex ? 'w-12 bg-[#E63946]' : 'w-4 bg-gray-200'}`}
+                      className={`h-3 sm:h-4 border-[2px] sm:border-[3px] border-black rounded-full transition-all duration-300 ${i === currentIndex ? 'w-8 sm:w-12 bg-[#E63946]' : 'w-3 sm:w-4 bg-gray-200'}`}
                     />
                   ))}
                 </div>
 
                 <button 
                   onClick={nextSlide}
-                  className="w-16 h-16 bg-white border-[4px] border-black rounded-full flex items-center justify-center shadow-[6px_6px_0_0_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:translate-y-[6px] active:shadow-none transition-all"
+                  className="w-12 h-12 sm:w-16 sm:h-16 bg-white border-[4px] border-black rounded-full flex items-center justify-center shadow-[4px_4px_0_0_rgba(0,0,0,1)] sm:shadow-[6px_6px_0_0_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] sm:hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] active:translate-y-[6px] active:shadow-none transition-all"
                 >
-                  <ArrowRight size={32} strokeWidth={4} />
+                  <ArrowRight size={24} className="sm:w-8 sm:h-8" strokeWidth={4} />
                 </button>
               </div>
             </div>
@@ -335,15 +337,15 @@ export default function App() {
 
       {/* 3. OUR SOLUTION & HOW IT WORKS */}
       <Section id="solution" title="SMART AI. INSTANT RESULTS." bg="#4CC9F0">
-        <div className="bg-white border-[8px] border-black shadow-[16px_16px_0_rgba(0,0,0,1)] p-8 md:p-12 mb-16 relative overflow-hidden">
-          <div className="absolute -right-20 -top-20 opacity-10">
-            <Cpu size={300} strokeWidth={1} />
+        <div className="bg-white border-[4px] md:border-[8px] border-black shadow-[8px_8px_0_rgba(0,0,0,1)] md:shadow-[16px_16px_0_rgba(0,0,0,1)] p-6 sm:p-8 md:p-12 mb-12 sm:mb-16 relative overflow-hidden">
+          <div className="absolute -right-10 -top-10 sm:-right-20 sm:-top-20 opacity-10">
+            <Cpu size={300} className="w-[200px] h-[200px] sm:w-[300px] sm:h-[300px]" strokeWidth={1} />
           </div>
-          <h3 className="font-display text-4xl mb-6 relative z-10">WHAT IS VISIONGUARD?</h3>
-          <p className="text-2xl font-bold max-w-3xl leading-relaxed relative z-10 mb-8">
+          <h3 className="font-display text-3xl md:text-4xl mb-4 md:mb-6 relative z-10">WHAT IS VISIONGUARD?</h3>
+          <p className="text-xl md:text-2xl font-bold max-w-3xl leading-relaxed relative z-10 mb-8">
             An intelligent computer vision platform that automates real-time inspection of containers, seals, stacking conditions, and warehouse quality using <span className="bg-[#FFC700] px-2 py-1 border-[3px] border-black inline-block transform -rotate-1">existing CCTV</span>.
           </p>
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-black text-white p-6 border-[4px] border-white font-bold text-xl uppercase text-center">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-black text-white p-4 md:p-6 border-[4px] border-white font-bold text-lg md:text-xl uppercase text-center">
             <div className="flex items-center gap-3"><Camera size={32} className="text-[#FFC700]" /> Camera Feed</div>
             <ArrowRight size={32} className="hidden md:block text-[#2A9D8F]" />
             <div className="flex items-center gap-3"><Cpu size={32} className="text-[#E63946]" /> AI Processing</div>
@@ -396,7 +398,7 @@ export default function App() {
             'Python 3.11', 'FastAPI', 'React.js', 'React Native', 'NVIDIA Jetson', 
             'AWS / Azure', 'Docker', 'Kubernetes', 'MongoDB', 'PostgreSQL'
           ].map((tech) => (
-            <div key={tech} className="bg-white border-[4px] border-black px-6 py-4 font-display text-2xl md:text-3xl shadow-[6px_6px_0_rgba(0,0,0,1)] hover:-translate-y-2 transition-transform transform rotate-[-1deg] hover:rotate-0 inline-block text-center mr-2 mb-2">
+            <div key={tech} className="bg-white border-[3px] sm:border-[4px] border-black px-4 sm:px-6 py-2 sm:py-4 font-display text-xl sm:text-2xl md:text-3xl shadow-[4px_4px_0_rgba(0,0,0,1)] sm:shadow-[6px_6px_0_rgba(0,0,0,1)] hover:-translate-y-2 transition-transform transform rotate-[-1deg] hover:rotate-0 inline-block text-center mr-0 sm:mr-2 mb-0 sm:mb-2">
               {tech}
             </div>
           ))}
@@ -406,32 +408,32 @@ export default function App() {
       {/* 6. PROTOTYPE */}
       <Section id="prototype" title="PROTOTYPE UI" bg="#7209B7" color="white">
         <div className="flex flex-col xl:flex-row gap-8">
-          <div className="flex-1 bg-white text-black border-[6px] border-black shadow-[16px_16px_0_rgba(0,0,0,1)] rounded-xl overflow-hidden flex flex-col">
-            <div className="bg-black text-white p-4 font-display text-xl flex justify-between items-center">
+          <div className="flex-1 bg-white text-black border-[4px] md:border-[6px] border-black shadow-[8px_8px_0_rgba(0,0,0,1)] md:shadow-[16px_16px_0_rgba(0,0,0,1)] rounded-xl overflow-hidden flex flex-col">
+            <div className="bg-black text-white p-3 md:p-4 font-display text-lg md:text-xl flex justify-between items-center">
               <span>LIVE FEED</span>
               <div className="flex gap-2">
-                <div className="w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
-                <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
-                <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+                <div className="w-3 h-3 md:w-4 md:h-4 bg-red-500 rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 md:w-4 md:h-4 bg-green-500 rounded-full"></div>
               </div>
             </div>
-            <div className="relative bg-gray-200 h-96 flex items-center justify-center p-8 overflow-hidden">
-              <div className="w-full max-w-lg h-full bg-gray-300 border-[4px] border-black relative">
+            <div className="relative bg-gray-200 h-64 sm:h-80 md:h-96 flex items-center justify-center p-4 md:p-8 overflow-hidden">
+              <div className="w-full max-w-lg h-full bg-gray-300 border-[3px] md:border-[4px] border-black relative">
                 {/* Mock Image Content */}
-                <div className="absolute inset-4 bg-[#E63946] border-[4px] border-black flex items-center justify-center">
-                  <span className="opacity-50 font-display text-4xl transform -rotate-12">CONTAINER 40FT</span>
+                <div className="absolute inset-2 md:inset-4 bg-[#E63946] border-[3px] md:border-[4px] border-black flex items-center justify-center">
+                  <span className="opacity-50 font-display text-2xl md:text-4xl transform -rotate-12 text-center">CONTAINER 40FT</span>
                 </div>
                 {/* Bounding Box */}
-                <div className="absolute top-1/4 right-1/4 w-32 h-32 border-[4px] border-red-500 bg-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
-                  <div className="absolute -top-8 left-[-4px] bg-red-500 text-white font-bold px-2 py-1 text-sm border-[2px] border-black whitespace-nowrap">
+                <div className="absolute top-1/4 right-1/4 w-24 h-24 md:w-32 md:h-32 border-[3px] md:border-[4px] border-red-500 bg-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+                  <div className="absolute -top-6 sm:-top-8 left-[-3px] md:left-[-4px] bg-red-500 text-white font-bold px-1 sm:px-2 py-1 text-xs md:text-sm border-[2px] border-black whitespace-nowrap">
                     DENT 92%
                   </div>
                 </div>
               </div>
             </div>
-            <div className="p-6 bg-gray-100 border-t-[6px] border-black flex flex-col sm:flex-row justify-between items-center gap-4">
-              <div className="font-bold text-lg text-black">STATUS: <span className="text-red-600 bg-red-100 px-2 py-1 border-[2px] border-red-600">NEEDS REVIEW</span></div>
-              <button className="bg-black text-white px-8 py-3 font-display text-xl hover:bg-red-500 hover:text-black hover:border-black border-[3px] border-transparent shadow-[4px_4px_0_rgba(0,0,0,0.2)] transition-colors">
+            <div className="p-4 md:p-6 bg-gray-100 border-t-[4px] md:border-t-[6px] border-black flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div className="font-bold text-base md:text-lg text-black">STATUS: <span className="text-red-600 bg-red-100 px-2 py-1 border-[2px] border-red-600 inline-block mt-2 sm:mt-0">NEEDS REVIEW</span></div>
+              <button className="w-full sm:w-auto bg-black text-white px-6 md:px-8 py-2 md:py-3 font-display text-lg md:text-xl hover:bg-red-500 hover:text-black hover:border-black border-[3px] border-transparent shadow-[4px_4px_0_rgba(0,0,0,0.2)] transition-colors">
                 FLAG ISSUE
               </button>
             </div>
@@ -461,9 +463,9 @@ export default function App() {
         </div>
         
         {/* Drive Link Button */}
-        <div className="mt-12 flex justify-center">
-          <a filter="noopener" target="_blank" rel="noreferrer" href="https://drive.google.com/drive/folders/1vl2dqhAnZrEpiGAbXSDgtOpGtVbOC802?usp=sharing" className="bg-[#FFC700] hover:bg-black hover:text-[#FFC700] text-black border-[4px] border-black px-8 py-4 font-display text-2xl lg:text-3xl shadow-[8px_8px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-4">
-            <ExternalLink size={36} strokeWidth={3} />
+        <div className="mt-8 md:mt-12 flex justify-center w-full">
+          <a filter="noopener" target="_blank" rel="noreferrer" href="https://drive.google.com/drive/folders/1vl2dqhAnZrEpiGAbXSDgtOpGtVbOC802?usp=sharing" className="bg-[#FFC700] hover:bg-black hover:text-[#FFC700] text-black border-[4px] border-black px-4 sm:px-8 py-3 sm:py-4 font-display text-xl sm:text-2xl lg:text-3xl shadow-[6px_6px_0_rgba(0,0,0,1)] md:shadow-[8px_8px_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center justify-center text-center gap-2 sm:gap-4 flex-wrap w-full sm:w-auto">
+            <ExternalLink size={24} className="sm:w-9 sm:h-9" strokeWidth={3} />
             VIEW PROJECT DRIVE & ASSETS
           </a>
         </div>
@@ -473,8 +475,8 @@ export default function App() {
       <Section title="THE BUSINESS CASE" bg="#2A9D8F" color="white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="font-display text-5xl mb-6 leading-tight drop-shadow-[2px_2px_0_black]">WHY DP WORLD?</h3>
-            <p className="font-bold text-xl leading-relaxed mb-6 bg-black/20 p-6 border-[4px] border-black">
+            <h3 className="font-display text-4xl md:text-5xl mb-6 leading-tight drop-shadow-[2px_2px_0_black]">WHY DP WORLD?</h3>
+            <p className="font-bold text-lg md:text-xl leading-relaxed mb-6 bg-black/20 p-4 md:p-6 border-[3px] md:border-[4px] border-black">
               VisionGuard AI complements <span className="bg-[#FFC700] text-black px-2 mx-1 border-[2px] border-black">CARGOES</span> TOS. 
               Speeding up container handover achieves higher throughput, improved safety, and reduced environmental impact globally.
             </p>
@@ -518,21 +520,21 @@ export default function App() {
           ))}
         </div>
         
-        <div className="text-center border-[8px] border-white border-b-0 p-12 lg:p-24 relative overflow-hidden bg-[#E63946] mx-auto w-full max-w-5xl rounded-t-3xl">
+        <div className="text-center border-[4px] md:border-[8px] border-white border-b-0 p-8 md:p-12 lg:p-24 relative overflow-hidden bg-[#E63946] mx-auto w-full max-w-5xl rounded-t-3xl">
           <div className="absolute inset-0 opacity-20 pointer-events-none">
              <Starburst className="w-[200%] h-[200%] -translate-x-1/4 -translate-y-1/4" />
           </div>
-          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl relative z-10 drop-shadow-[4px_4px_0_black]" style={{ WebkitTextStroke: '2px black' }}>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl relative z-10 drop-shadow-[4px_4px_0_black]" style={{ WebkitTextStroke: '2px black' }}>
             LET'S BUILD THIS.
           </h2>
-          <p className="font-bold text-xl md:text-3xl mt-6 mb-12 relative z-10 bg-black/60 p-4 border-[3px] border-black inline-block">
+          <p className="font-bold text-lg sm:text-xl md:text-3xl mt-4 max-w-md sm:max-w-none mx-auto sm:mt-6 mb-8 sm:mb-12 relative z-10 bg-black/60 p-3 sm:p-4 border-[2px] sm:border-[3px] border-black inline-block">
             DP World National Hackathon 2026
           </p>
           <br/>
-          <a href="mailto:sriharshameduri07@gmail.com" className="inline-block bg-[#FFC700] text-black font-display text-3xl px-12 py-6 border-[4px] border-black shadow-[8px_8px_0_black] hover:translate-y-2 hover:shadow-none transition-all relative z-10">
+          <a href="mailto:sriharshameduri07@gmail.com" className="inline-block bg-[#FFC700] text-black font-display text-2xl sm:text-3xl px-8 sm:px-12 py-4 sm:py-6 border-[3px] md:border-[4px] border-black shadow-[6px_6px_0_black] md:shadow-[8px_8px_0_black] hover:translate-y-2 hover:shadow-none transition-all relative z-10">
             CONTACT US
           </a>
-          <p className="font-bold text-xl mt-8 relative z-10 drop-shadow-[2px_2px_0_black]">
+          <p className="font-bold text-lg sm:text-xl mt-6 sm:mt-8 relative z-10 drop-shadow-[2px_2px_0_black]">
             Or call: +91 6302761059
           </p>
         </div>
